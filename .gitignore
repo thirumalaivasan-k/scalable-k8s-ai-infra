@@ -1,0 +1,9 @@
+# .gitignore additions for terraform/onprem
+terraform.tfvars
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+*.pem
+*.key
+admin.conf

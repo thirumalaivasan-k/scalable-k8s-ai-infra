@@ -1,0 +1,12 @@
+# backend.tf - HCP Terraform Cloud Backend Configuration
+# Update organization and workspace name to match your HCP setup
+
+terraform {
+  cloud {
+    organization = "your-org-name"  # Replace with your HCP organization name
+    
+    workspaces {
+      name = "scalable-k8s-onprem"  # Replace with your workspace name
+    }
+  }
+}
