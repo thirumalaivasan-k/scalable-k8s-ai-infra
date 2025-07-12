@@ -1,0 +1,30 @@
+# ----------------------------
+# modules/metallb/values.yaml
+# ----------------------------
+
+crds:
+  enabled: true
+  install: true
+
+namespace: "metallb-system"
+
+configInline:
+  address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+        - 172.16.100.150-172.16.100.180
+
+controller:
+  logLevel: "info"
+  nodeSelector:
+    node-role.kubernetes.io/control-plane: "true"
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      effect: "NoSchedule"
+
+speaker:
+  logLevel: "info"
+  nodeSelector:
+    node-role.kubernetes.io/worker: "true"
+  tolerations: []

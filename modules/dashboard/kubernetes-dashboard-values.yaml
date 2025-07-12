@@ -1,0 +1,11 @@
+auth:
+  enabled: true
+  mode: token
+
+rbac:
+  create: true
+  clusterReadOnlyRole: false
+
+serviceAccount:
+  create: true
+  name: kubernetes-dashboard

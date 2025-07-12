@@ -1,0 +1,20 @@
+# ----------------------------
+# modules/ingress/helm-values/values.yaml
+# ----------------------------
+
+controller:
+  replicaCount: 2
+  nodeSelector:
+    kubernetes.io/os: linux
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+  service:
+    type: LoadBalancer
+    externalTrafficPolicy: Local
+  admissionWebhooks:
+    enabled: true
+
+defaultBackend:
+  enabled: true
