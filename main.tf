@@ -11,6 +11,7 @@
 locals {
   control_plane_endpoint = "${var.primary_master.ip_address}:6443"
 }
+
 # Primary Control Plane (first master)
 module "control_plane_primary" {
   source                 = "./modules/control-plane-primary"
