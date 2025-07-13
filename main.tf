@@ -37,7 +37,6 @@ module "control_plane_secondary" {
 
 module "worker_node" {
   source = "./modules/worker-node"
-
   ip_address               = each.value.ip_address
   ssh_user                 = var.ssh_user
   ssh_private_key          = var.ssh_private_key
