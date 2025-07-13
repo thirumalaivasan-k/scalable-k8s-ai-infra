@@ -1,6 +1,6 @@
-# modules/worker-node/main.tf
+# modules/control-plane-secondary/main.tf
 
-resource "null_resource" "join_worker_node" {
+resource "null_resource" "join_secondary_master" {
   connection {
     type        = "ssh"
     user        = var.ssh_user

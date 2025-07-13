@@ -1,3 +1,13 @@
+# ----------------------------
+# versions.tf
+#
+# This file sets up the scalable Kubernetes AI infrastructure using Terraform.
+# 
+
+# ----------------------------
+# Root Module: versions.tf
+# ----------------------------
+
 terraform {
   required_version = ">= 1.5.0"
 
@@ -33,4 +43,7 @@ terraform {
     #   version = "~> 1.14.0"
     # }
   }
+
 }
+
+

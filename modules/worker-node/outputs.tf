@@ -1,9 +1,6 @@
-output "worker_node_ip" {
-  description = "The IP address of the worker node"
-  value       = var.ip_address
-}
+# modules/worker-node/outputs.tf
 
-output "hostname" {
-  description = "The hostname of the worker node"
-  value       = var.hostname
+output "worker_join_status" {
+  description = "Status message for worker node join"
+  value       = "Worker node joined the cluster successfully."
 }

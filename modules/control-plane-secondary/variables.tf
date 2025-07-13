@@ -1,8 +1,8 @@
-# ----------------------------
-# modules/worker-node/variables.tf
-# ----------------------------
+
+# modules/control-plane-secondary/variables.tf
+
 variable "ip_address" {
-  description = "IP address of the worker node"
+  description = "IP address of the secondary control plane node"
   type        = string
 }
 

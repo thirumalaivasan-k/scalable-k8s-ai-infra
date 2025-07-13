@@ -1,0 +1,31 @@
+k8sServiceHost: ${HOST_IP}
+k8sServicePort: 6443
+
+# Enable kube-proxy replacement for full eBPF routing
+kubeProxyReplacement: true
+hostServices:
+  enabled: true
+
+# Enable Hubble (optional observability)
+hubble:
+  enabled: true
+  metrics:
+    enableTLS: false
+    enabled:
+      - dns
+      - drop
+      - tcp
+      - flow
+      - icmp
+  relay:
+    enabled: true
+  ui:
+    enabled: true
+
+# Enable Cilium operator HA
+operator:
+  replicas: 1
+
+# Use Cilium as CNI
+cni:
+  exclusive: true

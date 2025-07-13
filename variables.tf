@@ -1,25 +1,32 @@
-variable "ssh_user" {
-  description = "The SSH user to access all nodes"
-  type        = string
-}
+# ----------------------------
+# variables.tf
+#
+# This file sets up the scalable Kubernetes AI infrastructure using Terraform.
+# 
 
+# ----------------------------
+# Root Module: variables.tf
+# ----------------------------
+# variables.tf
+variable "ssh_user"        { type = string }
 variable "ssh_private_key" {
-  description = "Path to the SSH private key"
+  description = "Private SSH key for connecting to nodes"
   type        = string
+  sensitive   = true
 }
 
-variable "pod_cidr" {
-  description = "Pod network CIDR for the cluster"
-  type        = string
-}
 
-variable "network_plugin" {
-  description = "Network plugin to use (flannel, calico, cilium)"
-  type        = string
+variable "pod_cidr"        { type = string }
+variable "network_plugin"  { type = string }
+
+variable "primary_master" {
+  type = object({
+    hostname   = string
+    ip_address = string
+  })
 }
 
 variable "master_nodes" {
-  description = "A map of master node definitions"
   type = map(object({
     hostname   = string
     ip_address = string
@@ -27,14 +34,8 @@ variable "master_nodes" {
 }
 
 variable "worker_nodes" {
-  description = "A map of worker node definitions"
   type = map(object({
     hostname   = string
     ip_address = string
   }))
-}
-
-variable "control_plane_endpoint" {
-  description = "The shared endpoint for the Kubernetes control plane (e.g., load balancer IP or DNS)."
-  type        = string
 }
